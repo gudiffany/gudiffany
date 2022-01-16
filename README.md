@@ -1,4 +1,4 @@
-### Hi there ,this my repository,welcome to my world!👋
+### Hi there ,this my repository👋
 
 <!--
 **gudiffany/gudiffany** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
