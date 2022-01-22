@@ -3,17 +3,17 @@
 using namespace std;
 
 int main() {
-	long long int num1[10001], num2[10001], num3[10001], num4[10001], num5[10001];//ruleµÄ·ÖµãÊ®½øÖÆÔ­ip
-	long long int num11[10001], num21[10001], num31[10001], num41[10001], num51[10001];//ruleµÄ·ÖµãÊ®½øÖÆÖÕip
-	int duan1[10001], duan2[10001], duan3[10001], duan4[10001];//¶Ëµã
-	char ds1[10001], ds2[10001], ds3[10001], ds4[10001];//Ê®Áù½øÖÆ
+	long long int num1[10001], num2[10001], num3[10001], num4[10001], num5[10001];//ruleçš„åˆ†ç‚¹åè¿›åˆ¶åŸip
+	long long int num11[10001], num21[10001], num31[10001], num41[10001], num51[10001];//ruleçš„åˆ†ç‚¹åè¿›åˆ¶ç»ˆip
+	int duan1[10001], duan2[10001], duan3[10001], duan4[10001];//ç«¯ç‚¹
+	char ds1[10001], ds2[10001], ds3[10001], ds4[10001];//åå…­è¿›åˆ¶
 	int dp1[10001], dp2[10001], dp3[10001], dp4[10001];
-	long long int ip11[10001], ip21[10001], ip1[10001], ip2[10001]; //Ê®½øÖÆip
-	int sum1[10001], sum2[10001];//0x×ª»¯ÎªÊ®½øÖÆ
+	long long int ip11[10001], ip21[10001], ip1[10001], ip2[10001]; //åè¿›åˆ¶ip
+	int sum1[10001], sum2[10001];//0xè½¬åŒ–ä¸ºåè¿›åˆ¶
 	int zw1[50], zw2[50], zw3[50], zw4[50];
 
-	char s, l, k;//³ıÈ¥×Ö·û
-	int s1;//³ıÈ¥×Ö·û
+	char s, l, k;//é™¤å»å­—ç¬¦
+	int s1;//é™¤å»å­—ç¬¦
 	int len = 0;
 
 
@@ -23,9 +23,9 @@ int main() {
 		file >> num11[len] >> s >> num21[len] >> s >> num31[len] >> s >> num41[len] >> s >> num51[len];
 		file >> duan1[len] >> s >> duan2[len] >> duan3[len] >> s >> duan4[len];
 		file >> s1 >> s >> ds1[len] >> ds2[len] >> l >> s1 >> k >> ds3[len] >> ds4[len];
-		/*ÊäÈëÊı¾İ*/
+		/*è¾“å…¥æ•°æ®*/
 
-		/*ip×ª»¯*/
+		/*ipè½¬åŒ–*/
 		for (int i = 7; i >= 0; i--) {
 			zw1[i] = num1[len] % 2;
 			num1[len] /= 2;
@@ -42,7 +42,7 @@ int main() {
 			zw1[i] = num4[len] % 2;
 			num4[len] /= 2;
 		}
-		//ÍøÖ·×ª»¯
+		//ç½‘å€è½¬åŒ–
 		for (int i = 0; i < num5[len]; i++) {
 			zw2[i] = 1;
 		}
@@ -54,7 +54,7 @@ int main() {
 			zw4[i] = 1;
 		}
 
-		//ÖØĞÂ¸³Öµ
+		//é‡æ–°èµ‹å€¼
 		int ss = 0, sss = 128;
 		for (int i = ss; i <= ss + 7; i++) {
 			num1[len] += zw3[i] * sss;
@@ -126,7 +126,7 @@ int main() {
 			zw1[i] = num41[len] % 2;
 			num41[len] /= 2;
 		}
-		//ÍøÖ·×ª»¯
+		//ç½‘å€è½¬åŒ–
 		for (int i = 0; i < num51[len]; i++) {
 			zw2[i] = 1;
 		}
@@ -138,7 +138,7 @@ int main() {
 			zw4[i] = 1;
 		}
 
-		//ÖØĞÂ¸³Öµ
+		//é‡æ–°èµ‹å€¼
 		ss = 0, sss = 128;
 		for (int i = ss; i <= ss + 7; i++) {
 			num11[len] += zw3[i] * sss;
@@ -282,7 +282,7 @@ int main() {
 		}
 		sum1[len] = 16 * dp1[len] + dp2[len];
 		sum2[len] = 16 * dp3[len] + dp4[len];
-		/*Ê®Áù½øÖÆ´¦Àí*/
+		/*åå…­è¿›åˆ¶å¤„ç†*/
 		len++;
 	}
 	long long int ans1[10001], ans2[10001], ans3[10001], ans4[10001], ans5[10001];
@@ -294,6 +294,7 @@ int main() {
 		packlen++;
 	}
 	len--;
+	packlen--;
 	ofstream fout;
 	fout.open("output.txt");
 	for (int i = 0; i < packlen; i++) {
@@ -301,7 +302,7 @@ int main() {
 		for (int j = 0; j < len; j++) {
 			if ( ans3[i] >= duan1[j] && ans3[i] <= duan2[j] && ans4[i] >= duan3[j]
 			        && ans4[i] <= duan4[j]) {
-				if ((ans5[i] >= sum1[j] && ans5[i] <= sum2[j]) || (sum1[j] == 0 && sum2[j] == 0)) {
+				if ((sum2[j] != 255) || (sum1[j] == ans5[i] && sum2[j] == 255)) {
 
 
 					if (num5[j] == 32 && num51[j] == 32 && ans1[i] == ip1[j] && ans2[i] == ip2[j]) {
@@ -309,7 +310,7 @@ int main() {
 						fout << j << "\n";
 						break;
 					}
-					if (num5[j] == 32 && num51[j] == 31 && ans1[i] == ip1[j] && (ans2[i] == ip2[j] || ans2[i] == ip2[j] + 1)) {
+					if (num5[j] == 32 && num51[j] == 31 && ans1[i] == ip1[j] && (ans2[i] == ip2[j] || ans2[i] == ip21[j] )) {
 						flag = 1;
 						fout << j << "\n";
 						break;
@@ -322,14 +323,14 @@ int main() {
 						}
 
 					}
-					if (num5[j] == 31 && num51[j] == 32 && ans2[i] == ip2[j] && (ans1[i] == ip1[j] || ans1[i] == ip1[j] + 1)) {
+					if (num5[j] == 31 && num51[j] == 32 && ans2[i] == ip2[j] && (ans1[i] == ip1[j] || ans1[i] == ip11[j] )) {
 						flag = 1;
 						fout << j << "\n";
 						break;
 
 					}
-					if (num5[j] == 31 && num51[j] == 31 && (ans2[i] == ip2[j] || ans2[i] == ip2[j] + 1) && (ans1[i] == ip1[j]
-					        || ans1[i] == ip1[j] + 1)) {
+					if (num5[j] == 31 && num51[j] == 31 && (ans2[i] == ip2[j] || ans2[i] == ip21[j] ) && (ans1[i] == ip1[j]
+					        || ans1[i] == ip11[j] )) {
 						flag = 1;
 						fout << j << "\n";
 						break;
@@ -337,7 +338,7 @@ int main() {
 					}
 
 					if (num5[j] == 31 && num51[j] < 31) {
-						if ((ans1[i] == ip1[j] || ans1[i] == ip1[j] + 1) && ans2[i] >= ip2[j]  && ans2[i] <= ip21[j] ) {
+						if ((ans1[i] == ip1[j] || ans1[i] == ip11[j]) && ans2[i] >= ip2[j]  && ans2[i] <= ip21[j] ) {
 							flag = 1;
 							fout << j << "\n";
 							break;
@@ -354,7 +355,7 @@ int main() {
 
 					}
 					if (num5[j] < 31 && num51[j] == 31) {
-						if (ans1[i] >= ip1[j] && ans1[i] <= ip11[j] && (ans2[i] == ip2[j] || ans2[i] == ip21[j] + 1)) {
+						if (ans1[i] >= ip1[j] && ans1[i] <= ip11[j] && (ans2[i] == ip2[j] || ans2[i] == ip21[j] )) {
 							flag = 1;
 							fout << j << "\n";
 							break;
@@ -379,10 +380,3 @@ int main() {
 	}
 	return 0;
 }
-
-
-
-
-
-
-
