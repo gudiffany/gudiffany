@@ -17,7 +17,7 @@ int main() {
 	int len = 0;
 
 
-	ifstream file("text.txt");
+	ifstream file("rule1.txt");
 	while ( ! file.eof() ) {
 		file >> s >> num1[len] >> s >> num2[len] >> s >> num3[len] >> s >> num4[len] >> s >> num5[len];
 		file >> num11[len] >> s >> num21[len] >> s >> num31[len] >> s >> num41[len] >> s >> num51[len];
@@ -288,7 +288,7 @@ int main() {
 	long long int ans1[10001], ans2[10001], ans3[10001], ans4[10001], ans5[10001];
 	int packlen = 0;
 	int flag = 0;
-	ifstream fin("pack.txt");
+	ifstream fin("packet1.txt");
 	while ( ! fin.eof() ) {
 		fin >> ans1[packlen] >> ans2[packlen] >> ans3[packlen] >> ans4[packlen] >> ans5[packlen];
 		packlen++;
@@ -296,7 +296,7 @@ int main() {
 	len--;
 	packlen--;
 	ofstream fout;
-	fout.open("output.txt");
+	fout.open("res.txt");
 	for (int i = 0; i < packlen; i++) {
 		flag = 0;
 		for (int j = 0; j < len; j++) {
