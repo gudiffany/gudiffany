@@ -16,6 +16,6 @@ Here are some ideas to get you started:
 -->
 <img align="right" src="https://github-readme-stats.vercel.app/api?username=gudiffany&show_icons=true">
 
-1.我在Dev c++5.11的环境下运行（迫不得已，我c++库炸了，vs用不了，所以重新回归原始工具）  
+1.我在Dev c++5.11的环境下运行  
 2.在cp文件夹中有main.cpp和x.h文件以及他们的编译文件，在任何环境都可以（大概），复制4个文件到数据包的文件夹中，然后打开cmd（可以cd命令或者直接在文件夹打开）命令输入main.exe后回车
-依次输入rule.txt和packetX.txt(X表示数字)再回车就会有res.txt的文件产生。当然也可以下载我的check.cpp文件进行检查是否出错。
+依次输入（顺序不可变）rule.txt和packetX.txt(X表示数字)再回车就会有res.txt的文件产生。当然也可以下载我的check.cpp文件进行检查是否出错（同main.exe）。
