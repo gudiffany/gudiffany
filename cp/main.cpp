@@ -8,37 +8,37 @@ int main() {
 	char name1[50];
 	char name2[50];
 	ifstream file;
-	ifstream fin; // ÏÈ²»´ò¿ªÎÄ¼ş, µÈ´ıÊäÈë
+	ifstream fin; // å…ˆä¸æ‰“å¼€æ–‡ä»¶, ç­‰å¾…è¾“å…¥
 	scanf("%s ",name1);
 	cin>>name2;
 	file.open(name1,ios::in);
-	fin.open(name2,ios::in); // fstreamµÄopenº¯ÊıÓÃÀ´´ò¿ªÒ»¸öÎÄ¼ş
+	fin.open(name2,ios::in); // fstreamçš„openå‡½æ•°ç”¨æ¥æ‰“å¼€ä¸€ä¸ªæ–‡ä»¶
 	if(!file||!fin)
-	cout<<"´ò¿ª´íÎó"<<endl;
+	cout<<"æ‰“å¼€é”™è¯¯"<<endl;
 	
-	long long int num1[GU], num2[GU], num3[GU], num4[GU], num5[GU];//ruleµÄ·ÖµãÊ®½øÖÆÔ­ip
-	long long int num11[GU], num21[GU], num31[GU], num41[GU], num51[GU];//ruleµÄ·ÖµãÊ®½øÖÆÖÕip
-	int duan1[GU], duan2[GU], duan3[GU], duan4[GU];//¶Ëµã
-	char ds1[GU], ds2[GU], ds3[GU], ds4[GU];//Ê®Áù½øÖÆ
+	long long int num1[GU], num2[GU], num3[GU], num4[GU], num5[GU];//ruleçš„åˆ†ç‚¹åè¿›åˆ¶åŸip
+	long long int num11[GU], num21[GU], num31[GU], num41[GU], num51[GU];//ruleçš„åˆ†ç‚¹åè¿›åˆ¶ç»ˆip
+	int duan1[GU], duan2[GU], duan3[GU], duan4[GU];//ç«¯ç‚¹
+	char ds1[GU], ds2[GU], ds3[GU], ds4[GU];//åå…­è¿›åˆ¶
 	int dp1[GU], dp2[GU], dp3[GU], dp4[GU];
-	long long int ip11[GU], ip21[GU], ip1[GU], ip2[GU]; //Ê®½øÖÆip
-	int sum1[GU], sum2[GU];//0x×ª»¯ÎªÊ®½øÖÆ
+	long long int ip11[GU], ip21[GU], ip1[GU], ip2[GU]; //åè¿›åˆ¶ip
+	int sum1[GU], sum2[GU];//0xè½¬åŒ–ä¸ºåè¿›åˆ¶
 
-	char s;//³ıÈ¥×Ö·û
-	int s1;//³ıÈ¥×Ö·û
+	char s;//é™¤å»å­—ç¬¦
+	int s1;//é™¤å»å­—ç¬¦
 	int len = 0;
 	long long int x;
 
 
 	ofstream fout;
-	fout.open("res4.txt");
+	fout.open("res.txt");
 	
 	while (!file.eof()) {
 		file >> s >> num1[len] >> s >> num2[len] >> s >> num3[len] >> s >> num4[len] >> s >> num5[len];
 		file >> num11[len] >> s >> num21[len] >> s >> num31[len] >> s >> num41[len] >> s >> num51[len];
 		file >> duan1[len] >> s >> duan2[len] >> duan3[len] >> s >> duan4[len];
 		file >> s1 >> s >> ds1[len] >> ds2[len] >> s >> s1 >> s >> ds3[len] >> ds4[len];
-		/*ÊäÈëÊı¾İ¶Ôrule½øĞĞ´¦Àí*/
+		/*è¾“å…¥æ•°æ®å¯¹ruleè¿›è¡Œå¤„ç†*/
 
 		ip1[len] = IP(num1[len], num2[len], num3[len], num4[len], num5[len], len, 1);
 		ip11[len] = IP(num1[len], num2[len], num3[len], num4[len], num5[len], len, 0);
@@ -66,7 +66,7 @@ int main() {
 
 		sum1[len] = 16 * dp1[len] + dp2[len];
 		sum2[len] = 16 * dp3[len] + dp4[len];
-		/*Ê®Áù½øÖÆ´¦Àí*/
+		/*åå…­è¿›åˆ¶å¤„ç†*/
 		len++;
 	}
 	
